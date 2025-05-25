@@ -1,0 +1,113 @@
+EX NO 9(E): QUEUE OPERATION - ENQUEUE AND DISPLAY
+
+
+AIM:
+To write a program to perform enqueue operation and display elements in a queue using an array.
+
+
+ALGORITHM:
+1.Start.
+2.Initialize variables: front, rear, and queue array.
+3.Define functions for enqueue and display.
+4.In enqueue, insert an element at the rear.
+5.In display, print elements from front to rear.
+6.Accept user input to perform operations.
+7.End.
+
+
+PROGRAM:
+#include <stdio.h>
+#define SIZE 100
+
+int queue[SIZE];
+int front = -1, rear = -1;
+
+void enqueue(int value) {
+    if (rear == SIZE - 1)
+        printf("Queue is Full\n");
+    else {
+        if (front == -1)
+            front = 0;
+        rear++;
+        queue[rear] = value;
+        printf("%d enqueued to queue\n", value);
+    }
+}
+
+void display() {
+    if (front == -1 || front > rear)
+        printf("Queue is Empty\n");
+    else {
+        printf("Queue elements are: ");
+        for (int i = front; i <= rear; i++)
+            printf("%d ", queue[i]);
+        printf("\n");
+    }
+}
+
+int main() {
+    int choice, value;
+
+    do {
+        printf("\n1. Enqueue\n2. Display\n3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter the value to enqueue: ");
+                scanf("%d", &value);
+                enqueue(value);
+                break;
+            case 2:
+                display();
+                break;
+            case 3:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid Choice!\n");
+        }
+    } while (choice != 3);
+
+    return 0;
+}
+
+
+C program to display queue elements using array.
+
+Developed by:  Prem kumar K
+RegisterNumber:  212223060209
+
+INPUT:
+1
+10
+1
+20
+2
+3
+
+
+
+OUTPUT:
+
+Enter your choice: 1
+Enter the value to enqueue: 10
+10 enqueued to queue
+
+Enter your choice: 1
+Enter the value to enqueue: 20
+20 enqueued to queue
+
+Enter your choice: 2
+Queue elements are: 10 20
+
+Enter your choice: 3
+Exiting...
+
+
+
+
+
+RESULT:
+Thus, the program is executed and verified successfully
